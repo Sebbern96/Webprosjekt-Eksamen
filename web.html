@@ -6,20 +6,47 @@
 
     </head>
     <body>
-        <form action="#" class="login-form"></form>
-        <h1> Sign in</h1>
+        <form action="#" class="login-form">
+        <h1>Logg inn</h1>
         <div class="textb">
             <input type="text" required>
-            <div class="placeholder">Brukernavn</div>
+            <div class="placeholder" id="username">Brukernavn</div>
 
         </div>
 
-        <div class="textb">
+        <div class="textb" >
             <input type="password" required>
-            <div class="placeholder">Passord</div>
+            <div class="placeholder" id="password">Passord</div>
+            <div class="show-password"></div>
         </div>
 
+
+
+       <button class="btn" value="login" onclick="validate()"> Gå videre</button>
+       <a href="#">Can't Sign in</a>
+       
     </form>
+
+    <script>
+
+        function validate(){
+            var brukernavn = document.getElementById("username").value;
+            var passord = document.getElementById("password").value;
+        if(brukernavn == "admin" && passord == "123")
+        {
+            alert("success");
+            return false;
+         } else
+        {
+            alert("fuck off");
+        }
+    }
+          
+
+
+    </script>
+
+  
        
 
         
