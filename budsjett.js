@@ -11,9 +11,6 @@ let utgMengde = document.getElementById("utgMengde");
 let id = 0;
 let details = [];
 
-
-
-
 function getBudsjettMengde(mengde) {
     if (!mengde) {
         mengdeInput.style.border = "1px solid #b80c09";
@@ -48,11 +45,11 @@ function addUtgifter(utgNavn, utgMengde) {
             utgNavn.style.color = "495057";
             utgNavn.style.border = "1px solid gray";
             utgNavn.placeholder = "Input kan ikke være tom";
-
-            utgMengde.placeholder = "Inout kan ikke være tom";
+            
+            utgMengde.placeholder = "Input kan ikke være tom";
             utgMengde.style.border = "1px solid gray";
-            utgMengde.style.color = "495057";
-        }, 3000);
+            utgMengde.style.color = "#495057";
+        }, 250000);
     } else {
         const brukerUtg = {
             id: id,
