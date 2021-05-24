@@ -1,21 +1,17 @@
-img.bg {
-    /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 100%;
-      
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
-      
-    /* Set up positioning */
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  
-  @media screen and (max-width: 1024px) { 
-    img.bg {
-      left: 50%;
-      margin-left: -512px;   
-    }
-  }
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+ul {
+
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    
+}
