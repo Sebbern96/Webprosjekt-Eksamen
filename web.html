@@ -6,41 +6,66 @@
 
     </head>
     <body>
-        <form action="#" class="login-form">
+        <!--Lager et skjema for å kunne fylle det inn med innhold som input for brukernavn. -->
+        <form action="https://www.vg.no" class="login-form">
         <h1>Logg inn</h1>
-        <div class="textb">
-            <input type="text" required>
-            <div class="placeholder" id="username">Brukernavn</div>
+        <div class="input-text">
+            <input type="text"  id="username" required>
+            <div class="placeholder">Brukernavn</div>
 
         </div>
-
-        <div class="textb" >
-            <input type="password" required>
-            <div class="placeholder" id="password">Passord</div>
-            <div class="show-password"></div>
+        <!--Input for passord-->
+        <div class="input-text" >
+            <input type="password"  id="password" required>
+            <div class="placeholder">Passord</div>
+        </div>
+        <!--Lager en checkbox for å kunne "checke" av for å kunne se passord i input feltet-->
+        <div class="checkbox">
+            <input type="checkbox" id= "check" oninput="showPassword()">
+            <p id="checkbox-text"> Vis passord</p>
         </div>
 
 
-
+       <!--Submit knapp-->
        <button class="btn" value="login" onclick="validate()"> Gå videre</button>
-       <a href="#">Can't Sign in</a>
        
     </form>
 
     <script>
 
+        //Funksjon til å få brukernavn og passord, som hvis er fører brukeren til neste side hvis ikke kalles det  på en aleart 
+
         function validate(){
-            var brukernavn = document.getElementById("username").value;
-            var passord = document.getElementById("password").value;
-        if(brukernavn == "admin" && passord == "123")
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+        if(username == "admin" && password == "user"){
+
+            return true 
+            
+         } 
+         else
         {
-            alert("success");
+            alert("Brukeren eksisterer ikke");
             return false;
-         } else
-        {
-            alert("fuck off");
         }
     }
+
+    //Funksjon for å kunne se passord etter å ha klikket checkbox og får passordet til å bli usynlig på nytt etter å ha klikket inn checkboxxen igjen
+
+    function showPassword(){
+        var check = document.getElementById("check").checked;
+        var passwordCheck = document.getElementById("password");
+        if(check == true ){
+            passwordCheck.setAttribute("type", "text");
+
+        } 
+        else
+        {
+         password.setAttribute("type", "password");
+        }
+    }
+
+
           
 
 
