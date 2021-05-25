@@ -4,58 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/yeti/bootstrap.min.css">
+    <title>Document</title>
 </head>
 <body>
+    <h1 id="utgift">Budsjett</h1>
+    <hr>
+    <div id="flex">
+        <div class="budsjett">
+            <h2>Totalt budsjett : <span id="totaltBudsjett">0</span></h2>
+            <h2>Balanse : <span id="balance">0</span></h2>
 
-    <div class="budsjett">
-        <div class="budsjettet">
-            <h2>Budsjett</h2>
-            <img src="images/budsjett.png" width="40" alt=""/>
-            <p class="mengde">kr. <span id="budsjettMengde">0</span></p>
+            <br><h2>Legg til penger i budsjettet</h2>
+            <input type="number" placeholder="Legg til penger" id="penger">
+            <button onclick="leggTilPenger()" id="leggTilPenger">Legg til penger</button>
+    <h2>Legg ti utgifter</h2>
+    <input type="text" placeholder="Utgift navn" id="utgiftNavn"> <br><br>
+    <input type="number" placeholder="Legg til utgift" id="utgiftMengde"><br><br><br>
+            <button onclick="leggTilUtgift()" id="leggTilUtgift">Legg til utgift</button>
+        </div>
+        <div class="lagtTilUtgift">
+        <h2>Tillagte utgifter</h2>
+        <div id="tillangteUtgifter">    
+        </div>    
         </div>
 
-        <div class="utgifter">
-            <h2>Utgifter</h2>
-            <img src="/images/utgifter.png" width="40" alt=""/>
-            <p class="utgifter-Mengde">kr. <span id="utgifterMengde">0</span></p>
-        </div>
-
-        <div class="Balanse">
-            <h2>Balanse</h2>
-            <img src="/images/balanse.png" width="40" alt=""/>
-            <p class="balanse-Mengde">kr.<span id="balanseMengde">0</span></p>
-        </div>
     </div>
 
-
-
-    <div class="budsjett-mottaker" id="budsjettMottaker">
-        <form id="lagForm">
-            <label for="">Penger i budsjettet</label> <br />
-            <input type="number" id="number"/> <br />
-            <button type="submit">Legg til budsjett</button>
-        </form>
-    </div>
-
-    <div class="utgift-form" id="utgift-form">
-        <form action="" id="utgForm">
-
-            <div class="">
-                <label for="">Skriv inn utgifter</label> <br />
-                <input type="text" id="utgNavn" />
-            </div>
-
-            <div class="">
-                <label for="">Skriv inn mengde</label> <br />
-                <input type="number" id="utgNumber">
-            </div>
-
-            <button type="submit" id="submitUtg">Legg til utgift</button>
-        </form>
-    </div>
-
-    <script src="budsjett.js"></script>
+    <script src="/budsjett.js" type="text/javascript"></script>
+    
 </body>
 </html>
