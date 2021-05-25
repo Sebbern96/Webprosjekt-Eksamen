@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="web.css">
+
+    </head>
+    <body>
+        <!--Lager et skjema for å kunne fylle det inn med innhold som input for brukernavn. -->
+        <form action="https://www.vg.no" class="login-form">
+        <h1>Logg inn</h1>
+        <div class="input-text">
+            <input type="text"  id="username" required>
+            <div class="placeholder">Brukernavn</div>
+
+        </div>
+        <!--Input for passord-->
+        <div class="input-text" >
+            <input type="password"  id="password" required>
+            <div class="placeholder">Passord</div>
+        </div>
+        <!--Lager en checkbox for å kunne "checke" av for å kunne se passord i input feltet-->
+        <div class="checkbox">
+            <input type="checkbox" id= "check" oninput="showPassword()">
+            <p id="checkbox-text"> Vis passord</p>
+        </div>
+
+
+       <!--Submit knapp-->
+       <button class="btn" value="login" onclick="validate()"> Gå videre</button>
+       
+    </form>
+
+    <script>
+
+        //Funksjon til å få brukernavn og passord, som hvis er fører brukeren til neste side hvis ikke kalles det  på en aleart 
+
+        function validate(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+        if(username == "admin" && password == "user"){
+
+            return true 
+            
+         } 
+         else
+        {
+            alert("Brukeren eksisterer ikke");
+            return false;
+        }
+    }
+
+    //Funksjon for å kunne se passord etter å ha klikket checkbox og får passordet til å bli usynlig på nytt etter å ha klikket inn checkboxxen igjen
+
+    function showPassword(){
+        var check = document.getElementById("check").checked;
+        var passwordCheck = document.getElementById("password");
+        if(check == true ){
+            passwordCheck.setAttribute("type", "text");
+
+        } 
+        else
+        {
+         password.setAttribute("type", "password");
+        }
+    }
+
+
+          
+
+
+    </script>
+
+  
+       
+
+        
+    
+
+    </body>
+
+
+</html>
