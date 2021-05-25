@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url("loginpics.img/body.jpeg");
+    background-size: cover;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+
+
+.login-form{
+width: 500px;
+padding: 50px 40px;
+margin-top: 50px;
+background-image: url("loginpics.img/login.jpg");
+background-size: contain;
+border-radius: 25px;
+
+    
+}
+
+.login-form h1{
+    text-align: center;
+    margin: 48px 0;
+    font-size: 36px; 
+    color: black;
+}
+
+.input-text{
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.input-text input{
+    width: 100%;
+    height: 70px;
+    border: none;
+    background-color: lightgray;
+    border-radius: 4px;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 14px 60px 0 10px;
+}
+
+.placeholder{
+    font-size: 14px;
+    font-weight:bolder;
+    position: absolute;
+    line-height: 70px;
+    top: 0;
+    left: 10px;
+    user-select: none;
+    pointer-events: none;
+    color: lightslategray;
+    opacity: 30%;
+
+}
+
+.checkbox-text{
+    width: 50%;
+    display: inline-block;
+}
+
+.btn{
+    font-weight: bolder;
+    margin-left: 35%;
+    margin-top: 20px;
+    display: block;
+    width: 30%;
+    height: 30px;
+    border-radius: 25px;
+    cursor: pointer;
+
+}
+
+.btn:hover{
+    border: 3px solid black;
+    overflow: hidden;
+}
+
+
+
+
