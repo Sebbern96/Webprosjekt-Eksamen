@@ -6,7 +6,7 @@ const balanseMengde = document.getElementById("balanseMengde");
 
 const utgForm = document.getElementById("utgForm");
 let utgNavn = document.getElementById("utgNavn");
-let utgMengde = document.getElementById("utgMengde");
+let utgMengde = document.getElementById("utgNumber");
 
 let id = 0;
 let details = [];
@@ -35,44 +35,48 @@ lagForm.addEventListener("submit", (e) => {
     getBudsjettMengde(mengdeInput.value);
 });
 
-function addUtgifter(utgNavn, utgMengde) {
-    if (!utgNavn.length || !utgMengde.length) {
+function addUtgifter(utgNavn, utgNumber) {
+    if (!utgNavn.length || !utgNumber.length) {
         utgNavn.style.border = "1px solid #b80c09";
         utgNavn.placeholder = "Input kan ikke være tom";
         utgNavn.style.color = "b80x90";
+
+        utgNumber.style.border = "1px solid#b80c09";
+        utgNumber.placeholder = "input can not be empty";
+        utgNumber.style.color = "#b80c09";
 
         setTimeout(() => {
             utgNavn.style.color = "495057";
             utgNavn.style.border = "1px solid gray";
             utgNavn.placeholder = "Input kan ikke være tom";
             
-            utgMengde.placeholder = "Input kan ikke være tom";
-            utgMengde.style.border = "1px solid gray";
-            utgMengde.style.color = "#495057";
-        }, 250000);
+            utgNumber.placeholder = "Input kan ikke være tom";
+            utgNumber.style.border = "1px solid gray";
+            utgNumber.style.color = "#495057";
+        }, 3000);
     } else {
         const brukerUtg = {
             id: id,
             utgNavn: utgNavn,
-            utgMengde: parseInt(utgMengde),
+            utgNumber: parseInt(utgNumber),
         };
         details.push(brukerUtg);
         displayUtg(details);
         id++;
         utgNavn.value = "";
-        utgMengde.value = "";
+        utgNumber.value = "";
     }
 }
 
 utgForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    addUtgifter(utgNavn.value, utgMengde.value);
+    addUtgifter(utgNavn.value, utgNumber.value);
 });
 
 function visUtg(details) {
-    utgMengde.innerHTML = null;
+    utgNumber.innerHTML = null;
     for (i = 0; i < details.length; i++) {
-        utgMengde.innerHTML += `
+        utgNumber.innerHTML += `
         <div class="utgMengde" id="kr.{details[i].id}">
             <div id= "utgNavn" class="utg"<p>kr.{detailst[i].name}</p></div>
             <div id= "utgMengde" class "utg"><p> <span>kr. </span>kr.{details[i].number}</p></div>
