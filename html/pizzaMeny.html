@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/mainMeny.css"
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css"> 
+    <title>Pizza meny</title>
+</head>
+<body>
+    <nav>
+        <p>Gyldne Pizza</p>
+        <ul>
+            <li><a href="mainMeny.html">Hjem</a></li>
+            <li><a href="budsjett.html">Budsjett</a></li>
+            <li><a href="AnsatteGyldnePizza.html">Ansatte</a></li>
+            <li><a href="restauranter.html">Restauranter</a></li>
+            <li><a href="pizzaMeny.html">Mat meny</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container mt-4">
+        <h1 class="display-4 text-center">Mat Meny<span class="text-primary">Gyldne</span>Pizza</h1>
+        <form id="ansatt-form">
+        
+        <div class="form-group">
+            <label for="navn">Type rett</label>
+            <input type="text" id="navn"
+            class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="stilling">Navn</label>
+            <input type="text" id="stilling"
+            class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="restaurant">Pris</label>
+            <input type="text" id="restaurant"
+            class="form-control">
+        </div>
+        
+            
+            <input type="submit" value="Legg Til rett" class="btn btn-primary btn-block">        
+        </form>
+        <table class="table table-striped mt-5">
+        
+        <thead>
+            <tr>
+            <th>Type rett</th>
+            <th>Navn</th>
+            <th>Pris</th>
+            <th></th>
+            </tr>
+            
+        </thead>
+        <tbody id="ansatt-list"></tbody>  
+        </table>
+        </div>
+        
+        <script src="/Js/pizzaMeny.Js"></script>
+
+
+</body>
+</html>
