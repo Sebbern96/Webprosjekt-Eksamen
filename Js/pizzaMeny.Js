@@ -1,17 +1,16 @@
 //Ansatt Class
 class Ansatt {
-    constructor(navn, stilling, restaurant, kontakt) {
+    constructor(typeRett, navn, pris) {
+        this.typeRett = typeRett;
         this.navn = navn;
-        this.stilling = stilling;
-        this.restaurant = restaurant;
-        this.kontakt = kontakt;
+        this.restaurant = pris;
     }
 }
 
 //UI Class
 class UI {
-    static displayAnsatte() {
-        const ansatte = Store.getAnsatte();
+    static displayMeny() {
+        const ansatte = Store.getMeny();
         
         ansatte.forEach((ansatt) => UI.addAnsattToList(ansatt));
     }
@@ -21,10 +20,9 @@ class UI {
             const row = document.createElement('tr');
             
             row.innerHTML = `
+            <td>${ansatt.typeRett}</td>
             <td>${ansatt.navn}</td>
-            <td>${ansatt.stilling}</td>
-            <td>${ansatt.restaurant}</td>
-            <td>${ansatt.kontakt}</td>
+            <td>${ansatt.pris}</td>
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
 `;
         list.appendChild(row);        
