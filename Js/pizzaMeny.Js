@@ -1,9 +1,11 @@
 //Ansatt Class
 class meny {
-    constructor(matrett, navn, pris, restaurant) {
+    constructor(matrett, navn, pris, drikke, drikkePris, restaurant,) {
         this.navn = matrett;
         this.navn = navn;
         this.pris = pris;
+        this.drikke = drikke;
+        this.drikkePris = drikkePris;
         this.restaurant = restaurant;
     }
 }
@@ -24,6 +26,8 @@ class UI {
             <td>${meny.matrett}</td>
             <td>${meny.navn}</td>
             <td>${meny.pris}</td>
+            <td>${meny.drikke}</td>
+            <td>${meny.drikkePris}</td>
             <td>${meny.restaurant}</td>
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
 `;
@@ -52,6 +56,8 @@ setTimeout(() => document.querySelector('.alert').remove(),2000);
             document.querySelector('#matrett').value = '';
             document.querySelector('#navn').value = '';
             document.querySelector('#pris').value = '';
+            document.querySelector('#drikke').value = '';
+            document.querySelector('#drikkePris').value = '';
             document.querySelector('#restaurant').value = '';
         }
 }
@@ -101,15 +107,17 @@ e.preventDefault();
 const matrett = document.querySelector('#matrett').value;
 const navn = document.querySelector('#navn').value;
 const pris = document.querySelector('#pris').value;
+const drikke = document.querySelector('#drikke').value;
+const drikkePris = document.querySelector('#drikkePris').value;
 const restaurant = document.querySelector('#restaurant').value;
     
 //Validate
-if(matrett === '' || navn === '' || pris === '' || restaurant === '') {
+if(matrett === '' || navn === '' || pris === '' || drikke === '' || drikkePris === ''|| restaurant === '') {
     UI.showAlert('Fyll inn alle felt!', 'info');
 } else {
     
 //Instatiate meny
-const meny = new Meny(matrett, navn, pris, restaurant);
+const meny = new Meny(matrett, navn, pris, drikke, drikkePris, restaurant);
 
 //Add Meny to UI
 UI.addMenyToList(meny);
