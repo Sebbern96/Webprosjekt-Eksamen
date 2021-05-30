@@ -1,36 +1,36 @@
 //Ansatt Class
-class Ansatt {
-    constructor(navn, stilling, restaurant, kontakt) {
+class meny {
+    constructor(matrett, navn, pris, restaurant) {
+        this.navn = matrett;
         this.navn = navn;
-        this.stilling = stilling;
+        this.pris = pris;
         this.restaurant = restaurant;
-        this.kontakt = kontakt;
     }
 }
 
 //UI Class
 class UI {
-    static displayAnsatte() {
-        const ansatte = Store.getAnsatte();
+    static displayMeny() {
+        const meny = Store.getMeny();
         
-        ansatte.forEach((ansatt) => UI.addAnsattToList(ansatt));
+        meny.forEach((meny) => UI.addMenyToList(meny));
     }
-        static addAnsattToList(ansatt) {
-            const list = document.querySelector('#ansatt-list');
+        static addMenyToList(meny) {
+            const list = document.querySelector('#meny-list');
             
             const row = document.createElement('tr');
             
             row.innerHTML = `
-            <td>${ansatt.navn}</td>
-            <td>${ansatt.stilling}</td>
-            <td>${ansatt.restaurant}</td>
-            <td>${ansatt.kontakt}</td>
+            <td>${meny.matrett}</td>
+            <td>${meny.navn}</td>
+            <td>${meny.pris}</td>
+            <td>${meny.restaurant}</td>
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
 `;
         list.appendChild(row);        
 }
     
-        static deleteAnsatt(el) {
+        static deleteMeny(el) {
             if(el.classList.contains('delete')) {
                 el.parentElement.parentElement.remove();
             }
@@ -41,7 +41,7 @@ class UI {
             div.className =`alert-${className}`;
             div.appendChild(document.createTextNode(message));
             const container = document.querySelector('.container');
-            const form = document.querySelector('#ansatt-form');
+            const form = document.querySelector('#meny-form');
             container.insertBefore(div, form);
             
 //Timer
@@ -49,73 +49,73 @@ setTimeout(() => document.querySelector('.alert').remove(),2000);
         }
     
         static clearFields() {
+            document.querySelector('#matrett').value = '';
             document.querySelector('#navn').value = '';
-            document.querySelector('#stilling').value = '';
+            document.querySelector('#pris').value = '';
             document.querySelector('#restaurant').value = '';
-            document.querySelector('#kontakt').value = '';
         }
 }
 
 //Event: Storage
 class Store {
-    static getAnsatte() {
-       let ansatte;
-        if(localStorage.getItem('ansatte') === null) {
-            ansatte = [];
+    static getMeny() {
+       let meny;
+        if(localStorage.getItem('meny') === null) {
+            meny = [];
         } else {
-            ansatte = JSON.parse(localStorage.getItem('ansatte'));
+            meny = JSON.parse(localStorage.getItem('meny'));
         }
         
-    return ansatte;
+    return meny;
     }
     
-    static addAnsatt(ansatt) {
-        const ansatte = Store.getAnsatte();
-        ansatte.push(ansatt);
-        localStorage.setItem('ansatte', JSON.stringify(ansatte));
+    static addMeny(meny) {
+        const meny = Store.getMeny();
+        meny.push(meny);
+        localStorage.setItem('meny', JSON.stringify(meny));
     }
     
-    static removeAnsatt(kontakt) {
-        const ansatte = Store.getAnsatte();
+    static removeMeny(restaurant) {
+        const meny = Store.getMeny();
         
-        ansatte.forEach((ansatt, index) => {
-            if(ansatt.kontakt === kontakt) {
-            ansatte.splice(index, 1);
+        meny.forEach((meny, index) => {
+            if(meny.restaurant === restaurant) {
+            meny.splice(index, 1);
             }
         });
         
-    localStorage.setItem('ansatte', JSON.stringify(ansatte)); 
+    localStorage.setItem('meny', JSON.stringify(meny)); 
     }
 }
 
-//Event: Vis Ansatte
-document.addEventListener('DOMContentLoaded', UI.displayAnsatte);
+//Event: Vis Meny
+document.addEventListener('DOMContentLoaded', UI.displayMeny);
 
-//Event: Legg til Ansatt
-document.querySelector('#ansatt-form').addEventListener('submit', (e) => {
+//Event: Legg til Meny
+document.querySelector('#meny-form').addEventListener('submit', (e) => {
     
 //Prevent submit
 e.preventDefault();
     
 //Get Values
+const matrett = document.querySelector('#matrett').value;
 const navn = document.querySelector('#navn').value;
-const stilling = document.querySelector('#stilling').value;
+const pris = document.querySelector('#pris').value;
 const restaurant = document.querySelector('#restaurant').value;
-const kontakt = document.querySelector('#kontakt').value;
     
 //Validate
-if(navn === '' || stilling === '' || restaurant === '' || kontakt === '') {
+if(matrett === '' || navn === '' || pris === '' || restaurant === '') {
     UI.showAlert('Fyll inn alle felt!', 'info');
 } else {
     
-//Instatiate ansatt
-const ansatt = new Ansatt(navn, stilling, restaurant, kontakt);
+//Instatiate meny
+const meny = new Meny(matrett, navn, pris, restaurant);
 
-//Add Ansatt to UI
-UI.addAnsattToList(ansatt);
+//Add Meny to UI
+UI.addMenyToList(meny);
     
-//Add Ansatt to Store
-Store.addAnsatt(ansatt);
+//Add Meny to Store
+Store.addMeny(meny);
     
 //Clear 
 UI.clearFields();   
@@ -123,14 +123,14 @@ UI.clearFields();
 }     
 });
 
-//Event: Fjern Ansatt
-document.querySelector('#ansatt-list').addEventListener('click', (e) => {
+//Event: Fjern Meny
+document.querySelector('#meny-list').addEventListener('click', (e) => {
     
-//Fjern Ansatt UI
-UI.deleteAnsatt(e.target);
+//Fjern Meny UI
+UI.deleteMeny(e.target);
     
-//Fjern Ansatt Storage
-Store.removeAnsatt(e.target.parentElement.previousElementSibling.textContent);
+//Fjern Meny Storage
+Store.removeMeny(e.target.parentElement.previousElementSibling.textContent);
    
 });
 
