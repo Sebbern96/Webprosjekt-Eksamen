@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/mainMeny.css">
-    <link rel="stylesheet" href="https://bootswatch.com/5/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,25 +20,28 @@
                 <li><a href="pizzaMeny.html">Mat meny</a></li>
             </ul>
         </nav>
-    <h1 id="utgift">Budsjett</h1>
-    <hr>
-    <div id="flex">
+    
+    <div id="flex" class="container mt-4">
+        <h1 id="utgift"class="display-4 text-center">Budsjett<span class="text-primary">Gyldne</span>Pizza</h1>
         <div class="budsjett">
-            <h2>Totalt budsjett : <span id="totaltBudsjett">0</span></h2>
-            <h2>Balanse : <span id="balanse">0</span></h2>
+            <h2 class=>Totalt budsjett : <span id="totaltBudsjett">0</span>kr</h2>
+            <h2>Balanse : <span id="balanse">0</span>kr</h2>
 
             <br><h2>Legg til penger i budsjettet</h2>
-            <input type="number" placeholder="Legg til penger" id="penger">
-            <button onclick="leggTilPenger()" id="leggTilPenger">Legg til penger</button>
-    <h2>Legg til utgifter</h2>
-    <input type="text" placeholder="Utgift navn" id="utgiftNavn"> <br><br>
-    <input type="number" placeholder="Legg til utgift (i kr)" id="utgiftMengde"><br><br><br>
-            <button onclick="leggTilUtgift()" id="leggTilUtgift">Legg til utgift</button>
+            <input type="number" placeholder="Legg til penger" id="penger" class="form-control ">
+            <button type="submit" class="btn btn-success mt-2" onclick="leggTilPenger()" id="leggTilPenger">Legg til penger</button>
+
+            <h2 class="mt-5">Legg til utgifter</h2>
+            <input type="text" placeholder="Utgift navn" id="utgiftNavn" class="form-control">
+            <input type="number" placeholder="Legg til utgift (i kr)" id="utgiftMengde" class="form-control mt-2">
+            <button type="submit" class="btn btn-danger mt-2" onclick="leggTilUtgift()" id="leggTilUtgift">Legg til utgift</button>
         </div>
-        <div class="lagtTilUtgift">
-        <h2>Utgifter lagt til</h2>
+
+        <div class="lagtTilUtgift mt-5">
+            <h2>Utgifter lagt til</h2>
         <div id="tillagteUtgifter">    
-        </div>    
+        </div>
+
         </div>
 
     </div>
