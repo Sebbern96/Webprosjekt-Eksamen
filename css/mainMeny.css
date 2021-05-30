@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
-body {
+body{
     
-    background-size: cover;
 }
 
 nav {
@@ -30,7 +30,6 @@ nav ul {
 
 
 nav ul li {
-    float: left;
     list-style: none;
     display: inline-block;
     
@@ -49,17 +48,4 @@ ul li a:hover {
     color: lightblue;
 }
 
-#infoBoks {
-    width: 200px;
-    margin: 100px 100px;
-}
 
-#infoBoks h1 {
-    font-family: sans-serif;
-    color: wheat;
-}
-
-#infoBoks p {
-    font-family: sans-serif;
-    color: wheat;
-}
