@@ -5,9 +5,6 @@
     box-sizing: border-box;
 }
 
-body{
-    
-}
 
 nav {
     width: 100%;
@@ -54,29 +51,50 @@ ul li a:hover {
     color: wheat;
 }
 
-#searchbar{
-    margin-left: 15%;
-    padding:15px;
-    border-radius: 10px;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
-  input[type=text] {
-     width: 30%;
-     -webkit-transition: width 0.15s ease-in-out;
-     transition: width 0.15s ease-in-out;
-  }
+html {
+  box-sizing: border-box;
+}
 
-  /* When the input field gets focus,
-       change its width to 100% */
-  input[type=text]:focus {
-    width: 70%;
-  }
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
 
- #list{
-   font-size:  1.5em;
-   margin-left: 90px;
-  }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
 
-.restauranter{
-  display: list-item;    
- } 
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+
+
+
+
+
