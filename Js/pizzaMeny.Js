@@ -1,11 +1,11 @@
 //Ansatt Class
-class meny {
-    constructor(matrett, navn, pris, drikke, drikkePris, restaurant,) {
-        this.navn = matrett;
+class Meny {
+    constructor(matrett, navn, pris, allergener, vegetar, restaurant) {
+        this.matrett = matrett;
         this.navn = navn;
         this.pris = pris;
-        this.drikke = drikke;
-        this.drikkePris = drikkePris;
+        this.allergener = allergener;
+        this.vegetar = vegetar;
         this.restaurant = restaurant;
     }
 }
@@ -13,9 +13,9 @@ class meny {
 //UI Class
 class UI {
     static displayMeny() {
-        const meny = Store.getMeny();
+        const menyen = Store.getMeny();
         
-        meny.forEach((meny) => UI.addMenyToList(meny));
+        menyen.forEach((meny) => UI.addMenyToList(meny));
     }
         static addMenyToList(meny) {
             const list = document.querySelector('#meny-list');
@@ -26,8 +26,8 @@ class UI {
             <td>${meny.matrett}</td>
             <td>${meny.navn}</td>
             <td>${meny.pris}</td>
-            <td>${meny.drikke}</td>
-            <td>${meny.drikkePris}</td>
+            <td>${meny.allergener}</td>
+            <td>${meny.vegetar}</td>
             <td>${meny.restaurant}</td>
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
 `;
@@ -56,8 +56,8 @@ setTimeout(() => document.querySelector('.alert').remove(),2000);
             document.querySelector('#matrett').value = '';
             document.querySelector('#navn').value = '';
             document.querySelector('#pris').value = '';
-            document.querySelector('#drikke').value = '';
-            document.querySelector('#drikkePris').value = '';
+            document.querySelector('#allergener').value = '';
+            document.querySelector('#vegetar').value = '';
             document.querySelector('#restaurant').value = '';
         }
 }
@@ -65,24 +65,24 @@ setTimeout(() => document.querySelector('.alert').remove(),2000);
 //Event: Storage
 class Store {
     static getMeny() {
-       let meny;
-        if(localStorage.getItem('meny') === null) {
-            meny = [];
+       let menyen;
+        if(localStorage.getItem('menyen') === null) {
+            menyen = [];
         } else {
-            meny = JSON.parse(localStorage.getItem('meny'));
+            menyen = JSON.parse(localStorage.getItem('menyen'));
         }
         
     return meny;
     }
     
     static addMeny(meny) {
-        const meny = Store.getMeny();
-        meny.push(meny);
-        localStorage.setItem('meny', JSON.stringify(meny));
+        const menyen = Store.getMeny();
+        menyen.push(meny);
+        localStorage.setItem('menyen', JSON.stringify(menyen));
     }
     
     static removeMeny(restaurant) {
-        const meny = Store.getMeny();
+        const menyen = Store.getMeny();
         
         meny.forEach((meny, index) => {
             if(meny.restaurant === restaurant) {
@@ -90,7 +90,7 @@ class Store {
             }
         });
         
-    localStorage.setItem('meny', JSON.stringify(meny)); 
+    localStorage.setItem('menyen', JSON.stringify(menyen)); 
     }
 }
 
@@ -107,17 +107,17 @@ e.preventDefault();
 const matrett = document.querySelector('#matrett').value;
 const navn = document.querySelector('#navn').value;
 const pris = document.querySelector('#pris').value;
-const drikke = document.querySelector('#drikke').value;
-const drikkePris = document.querySelector('#drikkePris').value;
+const allergener = document.querySelector('#allergener').value;
+const vegetar = document.querySelector('#vegetar').value;
 const restaurant = document.querySelector('#restaurant').value;
     
 //Validate
-if(matrett === '' || navn === '' || pris === '' || drikke === '' || drikkePris === ''|| restaurant === '') {
+if(matrett === '' || navn === '' || pris === '' || allergener === '' || vegetar === ''|| restaurant === '') {
     UI.showAlert('Fyll inn alle felt!', 'info');
 } else {
     
 //Instatiate meny
-const meny = new Meny(matrett, navn, pris, drikke, drikkePris, restaurant);
+const meny = new Meny(matrett, navn, pris, allergener, vegetar, restaurant);
 
 //Add Meny to UI
 UI.addMenyToList(meny);
