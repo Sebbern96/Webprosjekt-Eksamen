@@ -3,6 +3,9 @@
    <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/css/web.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css">
 
     </head>
     <body>
@@ -38,7 +41,7 @@
         function validate(){
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-        if(username == "admin" && password == "user"){
+        if(username == "admin" && password == "123"){
 
             return true 
             
@@ -50,7 +53,7 @@
         }
     }
 
-    //Funksjon for å kunne se passord etter å ha klikket checkbox og får passordet til å bli usynlig på nytt etter å ha klikket inn checkboxxen igjen
+    //Funksjon for å kunne se passord etter å ha klikket checkbox og får passordet til å bli usynlig på nytt etter å ha klikket inn checkboxen igjen
 
     function showPassword(){
         var check = document.getElementById("check").checked;

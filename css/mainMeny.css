@@ -80,7 +80,7 @@ html {
 }
 
 .container {
-  padding: 0 16px;
+  padding: 20px 16px;
 }
 
 .container::after, .row::after {
@@ -91,7 +91,24 @@ html {
 
 .title {
   color: grey;
+
 }
+
+.img{
+  margin: 5px 5px;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  
+  
+}
+
+.card{
+  width: 50%;
+  height: 400px;
+  margin-left: 25%;
+}
+
 
 
 
