@@ -8,7 +8,6 @@
 body{
     padding: 0;
     margin: 0;
-    background-image: url("loginpics.img/body.jpeg");
     background-size: cover;
     min-height: 100%;
     display: flex;
@@ -23,7 +22,6 @@ body{
 width: 500px;
 padding: 50px 40px;
 margin-top: 50px;
-background-image: url("loginpics.img/login.jpg");
 background-size: contain;
 border-radius: 25px;
 
@@ -74,14 +72,7 @@ border-radius: 25px;
 }
 
 .btn{
-    font-weight: bolder;
-    margin-left: 35%;
-    margin-top: 20px;
-    display: block;
-    width: 30%;
-    height: 30px;
-    border-radius: 25px;
-    cursor: pointer;
+  margin-left: 35%;
 
 }
 
