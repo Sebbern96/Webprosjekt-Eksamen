@@ -1,12 +1,14 @@
 //Ansatt Class
 class Meny {
-    constructor(matrett, navn, pris, allergener, vegetar, restaurant) {
+    constructor(matrett, navn, pris, allergener, vegetar, restaurant, drikke, dPris) {
         this.matrett = matrett;
         this.navn = navn;
         this.pris = pris;
         this.allergener = allergener;
         this.vegetar = vegetar;
         this.restaurant = restaurant;
+        this.drikke = drikke;
+        this.dPris = dPris;
     }
 }
 
@@ -29,6 +31,8 @@ class UI {
             <td>${meny.allergener}</td>
             <td>${meny.vegetar}</td>
             <td>${meny.restaurant}</td>
+            <td>${meny.drikke}</td>
+            <td>${meny.dPris}</td>
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
 `;
         list.appendChild(row);        
@@ -59,6 +63,8 @@ setTimeout(() => document.querySelector('.alert').remove(),2000);
             document.querySelector('#allergener').value = '';
             document.querySelector('#vegetar').value = '';
             document.querySelector('#restaurant').value = '';
+            document.querySelector('#drikke').value = '';
+            document.querySelector('#dPris').value = '';
         }
 }
 
@@ -81,11 +87,11 @@ class Store {
         localStorage.setItem('menyen', JSON.stringify(menyen));
     }
     
-    static removeMeny(restaurant) {
+    static removeMeny(dPris) {
         const menyen = Store.getMeny();
         
         meny.forEach((meny, index) => {
-            if(meny.restaurant === restaurant) {
+            if(meny.dPris === dPris) {
             meny.splice(index, 1);
             }
         });
@@ -110,14 +116,16 @@ const pris = document.querySelector('#pris').value;
 const allergener = document.querySelector('#allergener').value;
 const vegetar = document.querySelector('#vegetar').value;
 const restaurant = document.querySelector('#restaurant').value;
+const drikke = document.querySelector('#drikke').value;
+const dPris = document.querySelector('#dPris').value;
     
 //Validate
-if(matrett === '' || navn === '' || pris === '' || allergener === '' || vegetar === ''|| restaurant === '') {
+if(matrett === '' || navn === '' || pris === '' || allergener === '' || vegetar === ''|| restaurant === ''|| drikke === ''|| dPris === '') {
     UI.showAlert('Fyll inn alle felt!', 'info');
 } else {
     
 //Instatiate meny
-const meny = new Meny(matrett, navn, pris, allergener, vegetar, restaurant);
+const meny = new Meny(matrett, navn, pris, allergener, vegetar, restaurant, drikke, dPris);
 
 //Add Meny to UI
 UI.addMenyToList(meny);
