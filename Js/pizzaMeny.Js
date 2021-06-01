@@ -1,4 +1,4 @@
-//Ansatt Class
+//Meny Class
 class Meny {
     constructor(matrett, navn, pris, allergener, vegetar, restaurant, drikke, dPris) {
         this.matrett = matrett;
