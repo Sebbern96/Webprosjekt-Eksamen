@@ -8,7 +8,6 @@
 body{
     padding: 0;
     margin: 0;
-    background-size: cover;
     min-height: 100%;
     display: flex;
     align-items: center;
@@ -22,7 +21,6 @@ body{
 width: 500px;
 padding: 50px 40px;
 margin-top: 50px;
-background-size: contain;
 border-radius: 25px;
 
     
@@ -62,7 +60,6 @@ border-radius: 25px;
     user-select: none;
     pointer-events: none;
     color: lightslategray;
-    opacity: 30%;
 
 }
 
@@ -76,10 +73,8 @@ border-radius: 25px;
 
 }
 
-.btn:hover{
-    border: 3px solid black;
-    overflow: hidden;
-}
+
+
 
 
 
