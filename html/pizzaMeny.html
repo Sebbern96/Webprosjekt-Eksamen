@@ -2,81 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/mainMeny.css"
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
     <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css"> 
     <title>Pizza meny</title>
 </head>
+
 <body>
-    <nav>
-        <p>Gyldne Pizza</p>
-        <ul>
-            <li><a href="mainMeny.html">Hjem</a></li>
-            <li><a href="budsjett.html">Budsjett</a></li>
-            <li><a href="AnsatteGyldnePizza.html">Ansatte</a></li>
-            <li><a href="restauranter.html">Restauranter</a></li>
-            <li><a href="pizzaMeny.html">Mat meny</a></li>
-        </ul>
-    </nav>
+    
+    <!--Nav bar kode-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand">Gyldne Pizza</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="mainMeny.html">Hjem</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="AnsatteGyldnePizza.html">Ansatte</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="restauranter.html">Restauranter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="pizzaMeny.html">Pizza Meny
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="budsjett.html">Budsjett</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     
     <div class="container mt-4">
-        <h1 class="display-4 text-center">Mat Meny<span class="text-primary">Gyldne</span>Pizza</h1>
+        <h1 class="display-4 text-center">Meny<span class="text-primary">Gyldne</span>Pizza</h1>
         <form id="meny-form">
-        
-        <div class="form-group">
-            <label for="Matrett">Type rett</label>
-            <input type="text" id="matrett"
-            class="form-control">
-        </div>
-        <div class="form-group mt-2">
-            <label for="navn">Navn</label>
-            <input type="text" id="navn"
-            class="form-control">
-        </div>
-        <div class="form-group mt-2">
-            <label for="pris">Pris</label>
-            <input type="text" id="pris"
-            class="form-control">
-        </div>
-        <div class="form-group mt-2">
-            <label for="drikke">Drikke</label>
-            <input type="text" id="drikke"
-            class="form-control">
-        </div>
-        <div class="form-group mt-2">
-            <label for="drikkePris">Pris på drikke</label>
-            <input type="text" id="drikkePris"
-            class="form-control">
-        </div>
-        <div class="form-group mt-2">
-            <label for="restaurant">Restaurant</label>
-            <input type="text" id="restaurant"
-            class="form-control">
-        </div>
-            
-            <input type="submit" value="Legg Til Meny" class="btn btn-primary btn-block mt-2">        
+          
+          <div class="form-group">
+              <label for="matrett">Matrett</label>
+              <input type="text" id="matrett"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="navn">Navn</label>
+              <input type="text" id="navn"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="pris">Pris</label>
+              <input type="text" id="pris"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="allergener">Allergener</label>
+              <input type="text" id="allergener"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="vegetar">Vegetar</label>
+              <input type="text" id="vegetar"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="restaurant">Restaurant</label>
+              <input type="text" id="restaurant"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="drikke">Drikke</label>
+              <input type="text" id="drikke"
+              class="form-control">
+          </div>
+          <div class="form-group mt-2">
+              <label for="dPris">Pris på drikke</label>
+              <input type="text" id="dPris"
+              class="form-control">
+          </div>
+              
+          <input type="submit" value="Legg Til Meny" class="btn btn-primary btn-block mt-2"> 
+
         </form>
+
         <table class="table table-striped mt-5">
-        
-        <thead>
-            <tr>
-            <th>Matrett</th>
-            <th>Navn</th>
-            <th>Pris</th>
-            <th>Drikke</th>
-            <th>Pris på drikke</th>
-            <th>Restaurant</th>
-            <th></th>
-            </tr>
-            
-        </thead>
-        <tbody id="meny-list"></tbody>  
+
+          <thead>
+              <tr>
+              <th>Matrett</th>
+              <th>Navn</th>
+              <th>Pris</th>
+              <th>Allergener</th>
+              <th>Vegetar</th>
+              <th>Restaurant</th>
+              <th>Drikke</th>
+              <th>Pris på drikke</th>
+              <th></th>
+              </tr>
+          </thead>
+
+          <tbody id="meny-list"></tbody>  
+
         </table>
-        </div>
+      </div>
         
         <script src="/Js/pizzaMeny.Js"></script>
-
 
 </body>
 </html>
