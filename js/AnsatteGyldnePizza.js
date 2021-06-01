@@ -105,7 +105,7 @@ const kontakt = document.querySelector('#kontakt').value;
     
 //Validate
 if(navn === '' || stilling === '' || restaurant === '' || kontakt === '') {
-    UI.showAlert('Fyll inn alle felt!', 'info');
+    alert("Vennligst fyll inn alle feltene!");
 } else {
     
 //Instatiate ansatt

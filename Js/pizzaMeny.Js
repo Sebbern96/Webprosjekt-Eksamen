@@ -121,7 +121,7 @@ const dPris = document.querySelector('#dPris').value;
     
 //Validate
 if(matrett === '' || navn === '' || pris === '' || allergener === '' || vegetar === ''|| restaurant === ''|| drikke === ''|| dPris === '') {
-    UI.showAlert('Fyll inn alle felt!', 'info');
+    alert("Vennligst fyll inn alle feltene!");
 } else {
     
 //Instatiate meny
